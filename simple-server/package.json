@@ -1,0 +1,53 @@
+{
+  "name": "simple-server",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+    "build": "pesy",
+    "release": {
+      "releasedBinaries": [
+        "SimpleServerApp.exe"
+      ]
+    }
+  },
+  "buildDirs": {
+    "test": {
+      "require": [
+        "simple-server.lib",
+        "unix"
+      ],
+      "main": "TestSimpleServer",
+      "name": "TestSimpleServer.exe"
+    },
+    "library": {
+      "require": [
+        "Bytes",
+        "unix"
+      ],
+      "name": "simple-server.lib",
+      "namespace": "SimpleServer"
+    },
+    "executable": {
+      "require": [
+        "simple-server.lib",
+        "unix"
+      ],
+      "main": "SimpleServerApp",
+      "name": "SimpleServerApp.exe"
+    }
+  },
+  "scripts": {
+    "pesy": "bash -c 'env PESY_MODE=update pesy'",
+    "test": "esy x TestSimpleServer.exe"
+  },
+  "dependencies": {
+    "@esy-ocaml/reason": "*",
+    "@opam/dune": ">=1.6.0",
+    "ocaml": "^4.4.0",
+    "pesy": "*",
+    "refmterr": "*"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*"
+  }
+}
