@@ -21,9 +21,12 @@ let client = () => {
   switch (fork()) {
   | 0 =>
     Util.retransmit(stdin, sock);
-    // shutdown(sock, SHUTDOWN_SEND);
+    shutdown(sock, SHUTDOWN_SEND);
     exit(0);
-  | _ => wait()
+  | _ => 
+    Util.retransmit(stdin, sock);
+    close(stdout);
+    wait();
   };
   ();
 };
