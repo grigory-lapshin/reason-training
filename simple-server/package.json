@@ -32,8 +32,8 @@
         "simple-server.lib",
         "unix"
       ],
-      "main": "SimpleServerApp",
-      "name": "SimpleServerApp.exe"
+      "main": "Echo",
+      "name": "Echo.exe"
     }
   },
   "scripts": {
